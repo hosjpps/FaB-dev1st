@@ -323,17 +323,21 @@ grid-area: content;
 
 /* ===== ПРАКТИКИ ===== */
 .practices-info {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  /* Dark theme override */
+  background: linear-gradient(180deg, rgba(109,40,217,0.10), rgba(0,0,0,0.20));
   padding: 30px;
   border-radius: 15px;
-  border-left: 5px solid #667eea;
+  border-left: 5px solid var(--accent);
   margin-bottom: 30px;
+  color: var(--text);
+  box-shadow: 0 10px 24px var(--shadow);
 }
 
 .practices-info p {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 20px;
+  color: var(--muted);
 }
 
 .practice-card {
