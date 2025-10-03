@@ -548,23 +548,1198 @@ main.content,
 }
 
 .contact-info button {
-  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
-  color: #ffffff;
+}
+
+/* ... MODAL (contacts) ===== */
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.2s ease;
+}
+
+dialog {
   border: none;
-  border-radius: 10px;
-  padding: 12px 18px;
-  box-shadow: 0 10px 20px rgba(139,92,246,0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    max-width: 540px;
+    width: 92vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--card);
+    color: var(--text);
+    animation: slideIn 0.25s ease;
 }
 
-.contact-info button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 28px rgba(139,92,246,0.45);
-  filter: brightness(1.05);
+.modal-header {
+  background: linear-gradient(135deg, rgba(109,40,217,0.35) 0%, rgba(167,139,250,0.18) 100%);
+    color: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.4rem;
 }
 
-.footer {
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  background: linear-gradient(180deg, rgba(109,40,217,0.10), transparent);
+.modal-content {
+  padding: 1.75rem 1.5rem 1.5rem;
 }
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.25);
+}
+
+.form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+  
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия модалки */
+  .contact-button {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-50px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  
+  /* Адаптивность диалога */
+  @media (max-width: 600px) {
+    dialog { margin: 1rem; width: calc(100vw - 2rem); }
+    .modal-actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  .btn {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(139,92,246,0.35);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(139,92,246,0.45);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+  
+  .required {
+    color: #e74c3c;
+  }
+  
+  /* Кнопка открытия мо
