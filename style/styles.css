@@ -369,10 +369,22 @@ grid-area: content;
 /* ====WREPPER GRID==== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 25px;
   align-items: center;
   justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .experience-grid {
@@ -397,7 +409,7 @@ grid-area: content;
   }
 }
 
-/* ===== DARK THEME (Violet) OVERRIDES ===== */
+/* ===== DARK THEME (Violet) ===== */
 :root {
   --bg: #0b0b12;
   --bg2: #141428;
@@ -405,9 +417,9 @@ grid-area: content;
   --muted: #b0b0c3;
   --card: #181829;
   --border: rgba(255,255,255,0.08);
-  --accent: #8b5cf6;   /* purple-500 */
-  --accent2: #6d28d9;  /* purple-700 */
-  --accent3: #a78bfa;  /* purple-300 */
+  --accent: #8b5cf6;   /* purp-500 */
+  --accent2: #6d28d9;  /* purp-700 */
+  --accent3: #a78bfa;  /* purp-300 */
   --shadow: rgba(0,0,0,0.55);
 }
 
