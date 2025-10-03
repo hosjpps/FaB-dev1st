@@ -11,26 +11,38 @@ body {
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
-  background: white;
+  background: rgb(17, 17, 17);
   min-height: 100vh;
   box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  /* Новое: Сеточный макет для семантических областей */
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+  "header"
+  "nav"
+  "content"
+  "footer";
 }
 
 /* ===== ШАПКА ===== */
 .header {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  color: white;
+  background: linear-gradient(135deg, #000000 40%, #372847 100%);
+  color: rgb(223, 209, 209);
   text-align: center;
   padding: 30px;
   font-size: 28px;
   font-weight: 300;
   letter-spacing: 2px;
+  /* Новое: Привязка к области сетки */
+grid-area: header;
 }
 
 /* ===== НАВИГАЦИЯ ===== */
 .nav {
-  background: #2c3e50;
+  background: #111112;
   padding: 20px 0;
+  /* Новое: Привязка к области сетки */
+grid-area: nav;
 }
 
 .nav-list {
@@ -47,24 +59,26 @@ body {
 }
 
 .nav-link {
-  color: white;
+  color: rgb(215, 206, 206);
   text-decoration: none;
-  padding: 12px 25px;
+  padding: 12px 24px;
   border-radius: 25px;
   transition: all 0.3s ease;
   font-weight: 500;
 }
 
 .nav-link:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
-.content {
+main.content {
   padding: 40px;
   max-width: 900px;
   margin: 0 auto;
+  /* Новое: Привязка к области сетки */
+grid-area: content;
 }
 
 /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
@@ -75,7 +89,7 @@ body {
 
 .profile-title {
   font-size: 32px;
-  color: #2c3e50;
+  color: #171718;
   margin-bottom: 10px;
   font-weight: 300;
 }
@@ -92,19 +106,19 @@ body {
 
 .profile-name {
   font-size: 24px;
-  color: #2c3e50;
+  color: #9e26ab;
   margin: 10px 0;
   font-weight: 500;
 }
 
 .profile-group {
   font-size: 18px;
-  color: #7f8c8d;
+  color: #6a336d;
   margin: 5px 0;
 }
 
 .about-me {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #a1bdd9 100%);
   padding: 25px;
   border-radius: 15px;
   margin: 30px 0;
@@ -131,6 +145,7 @@ body {
   font-size: 14px;
   box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .skill-tag:hover {
@@ -151,13 +166,19 @@ body {
   font-weight: 300;
 }
 
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 .experience-card {
-  background: white;
+  background: rgb(39, 38, 38);
   padding: 25px;
   margin: 20px 0;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #b53ad7;
   transition: transform 0.3s ease;
 }
 
@@ -341,7 +362,7 @@ body {
   margin: 0;
 }
 
-/* ===== GRID WRAPPERS ===== */
+/* ====WREPPER GRID==== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -352,4 +373,180 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+  main.content {
+    padding: 20px;
+  }
+}
+
+/* ===== DARK THEME (Violet) OVERRIDES ===== */
+:root {
+  --bg: #0b0b12;
+  --bg2: #141428;
+  --text: #e6e6f0;
+  --muted: #b0b0c3;
+  --card: #181829;
+  --border: rgba(255,255,255,0.08);
+  --accent: #8b5cf6;   /* purple-500 */
+  --accent2: #6d28d9;  /* purple-700 */
+  --accent3: #a78bfa;  /* purple-300 */
+  --shadow: rgba(0,0,0,0.55);
+}
+
+body {
+  background:
+    radial-gradient(1100px circle at 8% 10%, rgba(109, 40, 217, 0.25) 0%, transparent 40%),
+    radial-gradient(900px circle at 90% 20%, rgba(167, 139, 250, 0.18) 0%, transparent 45%),
+    linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+}
+
+.page-container {
+  color: var(--text);
+}
+
+.header {
+  background: linear-gradient(90deg, rgba(109,40,217,0.25), rgba(167,139,250,0.12));
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  background: rgba(10,10,20,0.35);
+  backdrop-filter: saturate(120%) blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-link {
+  color: var(--text);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--accent3);
+  text-shadow: 0 0 8px rgba(167,139,250,0.6);
+}
+
+main.content,
+.content {
+  color: var(--text);
+}
+
+.profile-title,
+.page-title,
+.section-title {
+  color: var(--text);
+}
+
+.profile-name {
+  color: var(--accent3);
+}
+
+.profile-group,
+.experience-desc,
+.news-card p,
+.product-card p,
+.practice-card p,
+.about-me p,
+.contact-info p {
+  color: var(--muted);
+}
+
+.profile-photo {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.35), 0 10px 30px var(--shadow);
+}
+
+.about-me {
+  background: linear-gradient(180deg, rgba(109,40,217,0.12), rgba(0,0,0,0.2));
+  border-left: 5px solid var(--accent);
+  color: var(--text);
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, rgba(139,92,246,0.16), rgba(109,40,217,0.08));
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 10px rgba(139,92,246,0.2);
+}
+
+.skill-tag:hover {
+  box-shadow: 0 0 15px rgba(139,92,246,0.35);
+  transform: translateY(-2px);
+}
+
+.experience-card,
+.news-card,
+.product-card,
+.practice-card {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+.experience-card {
+  border-left-color: var(--accent);
+}
+
+.news-card {
+  border-left-color: var(--accent);
+}
+
+.practice-card {
+  border-left-color: var(--accent);
+}
+
+.experience-card:hover,
+.news-card:hover,
+.product-card:hover,
+.practice-card:hover {
+  box-shadow: 0 0 0 2px rgba(139,92,246,0.22), 0 18px 45px rgba(139,92,246,0.23);
+}
+
+.product-card h3,
+.news-card h2,
+.experience-title,
+.practice-card h3 {
+  color: var(--text);
+}
+
+.contact-info {
+  background: linear-gradient(180deg, rgba(109,40,217,0.10), rgba(0,0,0,0.2));
+  border-left: 5px solid var(--accent);
+  color: var(--text);
+}
+
+.contact-info button {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  box-shadow: 0 10px 20px rgba(139,92,246,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.contact-info button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 28px rgba(139,92,246,0.45);
+  filter: brightness(1.05);
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  background: linear-gradient(180deg, rgba(109,40,217,0.10), transparent);
 }
